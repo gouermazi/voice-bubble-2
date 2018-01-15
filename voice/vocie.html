@@ -55,23 +55,20 @@
 </head>
 <body>
 <div id="voicebubble" class="outter">
-    <div class="voiceBubblePaly voicediv"></div>
+    <div class="full voicediv"></div>
 </div>
 <script>
     $("#voicebubble").on("click",function (e) {
         var me = $(this).children(".voicediv")[0];
         if($(me).hasClass("voiceBubblePaly")){
-            alert(1);
             $(me).addClass("full");
             $(me).removeClass("voiceBubblePaly");
         }else{
-            alert(2);
             $(me).addClass("voiceBubblePaly");
             if($(me).hasClass("full")){
                 $(me).removeClass("full");
             }
         }
-        
     });
 </script>
 </body>
