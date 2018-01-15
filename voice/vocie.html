@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+        .voicediv{
+            width: 10px;
+            height: 12px;
+        }
+        .voiceBubblePaly {
+            background: url("vss.png") no-repeat center;
+            background-size: 30px 12px;
+            -webkit-animation: vbplay 1.2s infinite steps(1);
+            -moz-animation: vbplay 1.2s infinite steps(1);
+        }
+        .full{
+            background: url("voice3.png") no-repeat center;
+            background-size: 10px 12px;
+        }
+
+        @keyframes vbplay {
+           /* 0%{
+                background-image: url("voice1.png");
+            }
+            33%{
+                background-image: url("voice2.png");
+            }
+            66%{
+                background-image: url("voice3.png");
+            }
+            100%{
+                background-image: url("voice1.png");
+            }*/
+            0% {
+                background-position: 0;
+            }
+            33% {
+                background-position: -10px;
+            }
+            66% {
+                background-position: -20px;
+            }
+            100% {
+                background-position: 0;
+            }
+        }
+        .outter{
+            width: 80px;
+            height: 90px;
+        }
+    </style>
+</head>
+<body>
+<div id="voicebubble" class="outter">
+    <div class="voiceBubblePaly voicediv"></div>
+</div>
+<script>
+    $("#voicebubble").on("click",function (e) {
+        var me = $(this).children(".voicediv")[0];
+        if($(me).hasClass("voiceBubblePaly")){
+            alert(1);
+            $(me).addClass("full");
+            $(me).removeClass("voiceBubblePaly");
+        }else{
+            alert(2);
+            $(me).addClass("voiceBubblePaly");
+            if($(me).hasClass("full")){
+                $(me).removeClass("full");
+            }
+        }
+        
+    });
+</script>
+</body>
+</html>
